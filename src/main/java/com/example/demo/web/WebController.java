@@ -7,7 +7,7 @@ public class WebController implements WebInter {
 
     @Override
     public String hello() {
-        return "Hello LIxu";
+        return "Hello Word!";
     }
 
 }
