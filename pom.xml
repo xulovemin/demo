@@ -25,7 +25,19 @@
         </dependency>
     </dependencies>
 
+    <distributionManagement>
+        <repository>
+            <id>snapshots</id>
+            <url>http://xulovemin1413.xyz:8081/repository/maven-snapshots/</url>
+        </repository>
+    </distributionManagement>
+
     <repositories>
+        <repository>
+            <id>snapshots</id>
+            <name>Own Repository</name>
+            <url>http://xulovemin1413.xyz:8081/repository/maven-snapshots/</url>
+        </repository>
         <repository>
             <id>alimaven</id>
             <name>aliyun maven</name>
