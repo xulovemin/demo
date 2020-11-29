@@ -15,7 +15,7 @@ public class DemoApplication {
 
     @GetMapping("/hello")
     public String hello() {
-        return "master分支！";
+        return "开发环境";
     }
 
 }
