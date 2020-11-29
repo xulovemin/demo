@@ -15,7 +15,7 @@ public class DemoApplication {
 
     @GetMapping("/hello")
     public String hello() {
-        return "我很不好！";
+        return "develop分支！";
     }
 
 }
