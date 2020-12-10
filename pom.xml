@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.example</groupId>
     <artifactId>demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.1</version>
     <name>demo</name>
     <description>Demo project for Spring Boot</description>
 
@@ -25,19 +25,7 @@
         </dependency>
     </dependencies>
 
-    <distributionManagement>
-        <repository>
-            <id>snapshots</id>
-            <url>http://xulovemin1413.xyz:8081/repository/maven-snapshots/</url>
-        </repository>
-    </distributionManagement>
-
     <repositories>
-        <repository>
-            <id>snapshots</id>
-            <name>Own Repository</name>
-            <url>http://xulovemin1413.xyz:8081/repository/maven-snapshots/</url>
-        </repository>
         <repository>
             <id>alimaven</id>
             <name>aliyun maven</name>
@@ -50,6 +38,25 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>1.2.0</version>
+                <configuration>
+                    <imageName>localhost:8070/library/${project.artifactId}:${project.version}</imageName>
+                    <dockerDirectory>${project.basedir}</dockerDirectory>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                    <serverId>docker-harbor</serverId>
+                    <registryUrl>localhost:8070</registryUrl>
+                    <pushImage>true</pushImage>
+                </configuration>
             </plugin>
         </plugins>
     </build>
