@@ -4,6 +4,6 @@ WORKDIR /app
 
 EXPOSE 80
 
-ADD ./target/demo-0.1.jar app.jar
+ADD ${JAR_FILE} app.jar
 
 CMD java -jar app.jar
