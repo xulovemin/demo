@@ -1,0 +1,8 @@
+version: '3'
+services:
+  demo:
+    container_name: demo
+    image: demo
+    network_mode: bridge
+    ports:
+      - 8088:80
